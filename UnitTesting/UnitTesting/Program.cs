@@ -3,33 +3,29 @@
 
 namespace UnitTesting
 {
-    class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
-            bool run = true;
-            double initialBalance = 3500;
+            bool runApp = true;
+            decimal initialBalance = 3500;
             do
             {
-                Console.WriteLine("Welcome to the Bank");
+                Console.WriteLine("Welcome to the VirtuATM");
+                Console.WriteLine("Please select an option 1/2/3/4");
+                Console.WriteLine("1. View balance");
+                Console.WriteLine("2. Withdraw Money");
+                Console.WriteLine("3. Deposit Money");
+                Console.WriteLine("4. Exit ATM");
+                string userInput = Console.ReadLine();
+            } while (true);
 
-                Console.WriteLine("View balance");
-                Console.WriteLine("Withdraw Money");
-                Console.WriteLine("Deposit Money");
-                Console.ReadLine();
-            } while() 
-            {
-
-            }
             
 
 
 
         }
-        /// <summary>
-        /// starting
-        /// </summary>
-        /// <returns></returns>
+
         public static decimal viewBalance() 
     }
 }
