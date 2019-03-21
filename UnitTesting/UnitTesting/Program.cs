@@ -53,7 +53,7 @@ namespace UnitTesting
                     else
                     {
                         Console.WriteLine("You've chosen to exit the console, Enjoy your day :)");
-                        //I learned of this Brute force method from Jamilah McWilliams the night TA
+                        //I learned of this Brute force method from Jamilah McWilliams the night TA, It was late and I needed help
                         Environment.Exit(0);
 
                     }
