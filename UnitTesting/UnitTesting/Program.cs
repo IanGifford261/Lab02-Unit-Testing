@@ -26,23 +26,37 @@ namespace UnitTesting
                 if (convertStgToInt == 1)
                 {
                     Console.WriteLine($"Your Current Balance is {totalBalance}");
+
                 }else if (convertStgToInt == 2)
                 {
                     Console.WriteLine($"Select an amount you would like to withdraw, your current balance is {totalBalance}");
                     string userWithdraw = Console.ReadLine();
                     decimal withdrawnAmt = Convert.ToInt32(userWithdraw);
-                    withdrawAmt();
+                    //withdrawAmt(withdrawnAmt, totalBalance);
                 }
 
             } while (runApp);
 
         }
 
-        public static decimal withdrawAmt(decimal withdrawnAmt, decimal totalBalance)
+        public static string withdrawAmt(decimal withdrawnAmt, decimal totalBalance)
         {
-            if(withdrawnAmt > totalBalance)
+            if (withdrawnAmt > totalBalance)
             {
-                
+                return "You cannot withdraw more than your total balance";
+            } else
+            {
+                decimal newBalance;
+                newBalance = withdrawnAmt - totalBalance;
+                return Convert.ToString(newBalance);
+            }
+
+        }
+
+        public static string depositAmt(decimal depositedAmt, decimal totalBalance)
+        {
+            if (depositedAmt > 0)
+            {
 
             }
         }

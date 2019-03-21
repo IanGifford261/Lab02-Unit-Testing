@@ -7,9 +7,15 @@ namespace XUnitTestProject1
     public class UnitTest1
     {
         [Fact]
-        public void TestForWithdrawAmt()
+        public void TestForWithdrawAmtOverTotalBalance()
         {
-            decimal number = Program.withdrawAmt()
+            string number = Program.withdrawAmt(4000, 3500);
+        }
+
+        [Fact]
+        public void TestForWithdrawAmtUnderTotalBalance()
+        {
+            string number = Program.withdrawAmt(2368, 3500);
         }
     }
 }
