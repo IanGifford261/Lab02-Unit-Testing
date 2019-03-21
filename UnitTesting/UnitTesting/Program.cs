@@ -9,12 +9,13 @@ namespace UnitTesting
         {
             try
             {
+                //decimal totalBalance = 3500;
                 Console.WriteLine("Welcome to the VirtuATM");
                 bool runApp = true;
-
+                //decimal totalBalance = 3500;
                 do
                 {
-                    Console.WriteLine("Please select an option 1/2/3/4");
+                    Console.WriteLine("Please select an option 1-4, You must pick a numerical value");
 
                     Console.WriteLine("1. View balance");
 
@@ -36,14 +37,15 @@ namespace UnitTesting
                         Console.WriteLine($"Enter an amount you would like to withdraw, your current balance is {totalBalance}");
                         string userWithdraw = Console.ReadLine();
                         decimal withdrawnAmt = Convert.ToInt32(userWithdraw);
-                        //WithdrawAmt(withdrawnAmt, totalBalance);
+                        WithdrawAmt(withdrawnAmt, totalBalance);
                     }
                     else if (convertStgToInt == 3)
                     {
                         Console.WriteLine($"Enter an amount you would like to deposit, your current balance is {totalBalance}");
-                        string userDeposit = Console.ReadLine();
-                        decimal depositAmt = Convert.ToInt32(userDeposit);
-                        //DepositAmt(depositAmt, totalBalance)
+                        decimal userDeposit = decimal.Parse(Console.ReadLine());
+                        //decimal depositAmt = Convert.ToInt32(userDeposit);
+                        DepositAmt(userDeposit, totalBalance);
+                        Console.WriteLine($"Your balance is now {totalBalance}");
                     }
                     else
                     {
@@ -51,6 +53,7 @@ namespace UnitTesting
                     }
 
                 } while (runApp);
+
             } catch (Exception e)
             {
                 Console.WriteLine("Sorry, what you entered must be a numerical value");
@@ -67,25 +70,27 @@ namespace UnitTesting
             if (withdrawnAmt > totalBalance)
             {
                 return "You cannot withdraw more than your total balance";
+
             } else
             {
                 decimal newBalance;
-                newBalance = withdrawnAmt - totalBalance;
+                newBalance = totalBalance - withdrawnAmt;
                 return Convert.ToString(newBalance);
             }
 
         }
 
-        public static string DepositAmt(decimal depositedAmt, decimal totalBalance)
+        public static string DepositAmt(decimal userDeposit, decimal totalBalance)
         {
-            if (depositedAmt > 0)
+            if (userDeposit > 0)
             {
                 decimal newBalance;
-                newBalance = depositedAmt + totalBalance;
+                newBalance = userDeposit + totalBalance;
                 return Convert.ToString(newBalance);
             } else
             {
                 return "You cannot deposit less than zero!";
+
             }
             
         }
