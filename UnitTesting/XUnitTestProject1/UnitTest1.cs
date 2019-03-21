@@ -9,13 +9,24 @@ namespace XUnitTestProject1
         [Fact]
         public void TestForWithdrawAmtOverTotalBalance()
         {
-            string number = Program.withdrawAmt(4000, 3500);
+            string number = Program.WithdrawAmt(4000, 3500);
         }
 
         [Fact]
         public void TestForWithdrawAmtUnderTotalBalance()
         {
-            string number = Program.withdrawAmt(2368, 3500);
+            string number = Program.WithdrawAmt(2368, 3500);
+        }
+        [Fact]
+        public void TestForDepositAmtOverZero()
+        {
+            string number = Program.DepositAmt(25, 3500);
+
+        }
+        [Fact]
+        public void TestForDepositLessThanZero()
+        {
+            string number = Program.DepositAmt(-1, 3500);
         }
     }
 }
