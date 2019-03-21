@@ -4,12 +4,14 @@ namespace UnitTesting
 {
     public class Program
     {
+        /// <summary>
+        /// Main method that runs all menu options and calls the helper methods to do the math to modify the totalBalance
+        /// </summary>
         public static decimal totalBalance = 3500;
         public static void Main(string[] args)
         {
             try
             {
-                //decimal totalBalance = 3500;
                 Console.WriteLine("Welcome to the VirtuATM");
                 bool runApp = true;
                 //decimal totalBalance = 3500;
@@ -27,6 +29,7 @@ namespace UnitTesting
 
                     string userInput = Console.ReadLine();
                     int convertStgToInt = Convert.ToInt32(userInput);
+
                     if (convertStgToInt == 1)
                     {
                         Console.WriteLine($"Your Current Balance is {totalBalance}");                       
@@ -49,7 +52,10 @@ namespace UnitTesting
                     }
                     else
                     {
-                            
+                        Console.WriteLine("You've chosen to exit the console, Enjoy your day :)");
+                        //I learned of this Brute force method from Jamilah McWilliams the night TA
+                        Environment.Exit(0);
+
                     }
 
                 } while (runApp);
@@ -57,22 +63,29 @@ namespace UnitTesting
             } catch (Exception e)
             {
                 Console.WriteLine("Sorry, what you entered must be a numerical value");
-                Console.WriteLine(e);
+                Console.WriteLine(e.Message);
 
             } finally
             {
                 Console.WriteLine("Enjoy your day");
             }
+            Console.ReadLine();
         }
-
+        /// <summary>
+        /// Method to withdraw (subtract) user specified amount from the totalBalance
+        /// </summary>
+        /// <param name="withdrawnAmt">This is the users input to withdraw from the total</param>
+        /// <param name="totalBalance">This is just the global variable declared outside the Main Method</param>
+        /// <returns></returns>
         public static string WithdrawAmt(decimal withdrawnAmt, decimal totalBalance)
         {
             if (withdrawnAmt > totalBalance)
             {
-                return "You cannot withdraw more than your total balance";
+               throw new Exception("You cannot withdraw more than your total balance");
 
             } else
             {
+                //Jamilah McWilliams Helped me refactor this math to modify totalBalance
                 totalBalance = totalBalance - withdrawnAmt;
                 Console.WriteLine($"You new balance is now {totalBalance}");
                 return Convert.ToString(totalBalance);
@@ -80,12 +93,17 @@ namespace UnitTesting
             }
 
         }
-
+        /// <summary>
+        /// Method to Deposit (add) user specified amount to the totalBalance
+        /// </summary>
+        /// <param name="depositAmt">his is the users input to deposit an amount the total</param>
+        /// <param name="totalBalance">This is just the global variable declared outside of Main Method</param>
+        /// <returns></returns>
         public static string DepositAmt(decimal depositAmt, decimal totalBalance)
         {
             if (depositAmt > 0)
             {
-
+                //Jamilah McWilliams Helped me refactor this math to modify totalBalance
                 totalBalance = totalBalance + depositAmt;
                 Console.WriteLine($"You new balance is now {totalBalance}");
                 return Convert.ToString(totalBalance);

@@ -9,7 +9,9 @@ namespace XUnitTestProject1
         [Fact]
         public void TestForWithdrawAmtOverTotalBalance()
         {
+            string execeptionTest = "You cannot withdraw more than your total balance";
             string number = Program.WithdrawAmt(4000, 3500);
+            Assert.Equal(execeptionTest, );
         }
 
         [Fact]
