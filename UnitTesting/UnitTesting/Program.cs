@@ -14,7 +14,6 @@ namespace UnitTesting
             {
                 Console.WriteLine("Welcome to the VirtuATM");
                 bool runApp = true;
-                //decimal totalBalance = 3500;
                 do
                 {
                     Console.WriteLine("Please select an option 1-4, You must pick a numerical value");

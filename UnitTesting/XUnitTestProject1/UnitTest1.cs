@@ -11,7 +11,7 @@ namespace XUnitTestProject1
         {
             string execeptionTest = "You cannot withdraw more than your total balance";
             string number = Program.WithdrawAmt(4000, 3500);
-            Assert.Equal(execeptionTest, );
+            Assert.Equal(execeptionTest, number);
         }
 
         [Fact]
