@@ -7,7 +7,7 @@
 ## Description
 
 This is a C# console application that will ask prompt a user with the normal ATM menu that you would find at an ATM. There are multiple choices that you can pick such as "View Balance, Withdraw, Deposit, and exit."
-At the end of the game the user receives their total score.
+A user can select each option while "withdrawing"/"depositing" currency and having it update.
 
 ------------------------------
 
