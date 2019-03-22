@@ -8,6 +8,7 @@ namespace UnitTesting
         /// Main method that runs all menu options and calls the helper methods to do the math to modify the totalBalance
         /// </summary>
         public static decimal totalBalance = 3500;
+        
         public static void Main(string[] args)
         {
             try
@@ -39,14 +40,14 @@ namespace UnitTesting
                         Console.WriteLine($"Enter an amount you would like to withdraw, your current balance is {totalBalance}");
                         string userWithdraw = Console.ReadLine();
                         decimal withdrawnAmt = Convert.ToInt32(userWithdraw);
-                        WithdrawAmt(withdrawnAmt, totalBalance);
+                        WithdrawAmt(withdrawnAmt);
                     }
                     else if (convertStgToInt == 3)
                     {
                         Console.WriteLine($"Enter an amount you would like to deposit, your current balance is {totalBalance}");
                         string userDeposit = Console.ReadLine();
                         decimal depositAmt = Convert.ToInt32(userDeposit);
-                        DepositAmt(depositAmt, totalBalance);
+                        DepositAmt(depositAmt);
                         
                     }
                     else
@@ -75,14 +76,16 @@ namespace UnitTesting
         /// </summary>
         /// <param name="withdrawnAmt">This is the users input to withdraw from the total</param>
         /// <param name="totalBalance">This is just the global variable declared outside the Main Method</param>
-        /// <returns></returns>
-        public static string WithdrawAmt(decimal withdrawnAmt, decimal totalBalance)
+        /// <returns>The total balance if the withdrawn amount is less than the current total balance, otherwise it stops the method and returns to main menu</returns>
+        public static string WithdrawAmt(decimal withdrawnAmt)
         {
             if (withdrawnAmt > totalBalance)
             {
-               throw new Exception("You cannot withdraw more than your total balance");
-
-            } else
+                Console.WriteLine("You cannot withdraw more than your total balance");
+                return "Please enter an amount below your total balance";
+                
+            }
+            else 
             {
                 //Jamilah McWilliams Helped me refactor this math to modify totalBalance
                 totalBalance = totalBalance - withdrawnAmt;
@@ -95,10 +98,9 @@ namespace UnitTesting
         /// <summary>
         /// Method to Deposit (add) user specified amount to the totalBalance
         /// </summary>
-        /// <param name="depositAmt">his is the users input to deposit an amount the total</param>
-        /// <param name="totalBalance">This is just the global variable declared outside of Main Method</param>
-        /// <returns></returns>
-        public static string DepositAmt(decimal depositAmt, decimal totalBalance)
+        /// <param name="depositAmt">This is the users input to deposit an amount the total</param>
+        /// <returns>The total balance if input is greater than zero, otherwise it stops the method and returns to main menu</returns>
+        public static string DepositAmt(decimal depositAmt)
         {
             if (depositAmt > 0)
             {
