@@ -10,26 +10,26 @@ namespace XUnitTestProject1
         [Fact]
         public void TestForWithdrawAmtOverTotalBalance()
         {
-            string execeptionTest = "You cannot withdraw more than your total balance";
-            decimal number = Program.WithdrawAmt(4000, 3500);
-            Assert.Equal(execeptionTest, number);
+            decimal overDraw = 4000;
+            string number = Program.WithdrawAmt(overDraw);
+            Assert.Equal("Please enter an amount below your total balance", number);
         }
 
-        [Fact]
-        public void TestForWithdrawAmtUnderTotalBalance()
-        {
-            string number = Program.WithdrawAmt(2368, 3500);
-        }
-        [Fact]
-        public void TestForDepositAmtOverZero()
-        {
-            string number = Program.DepositAmt(25, 3500);
+        //[Fact]
+        //public void TestForWithdrawAmtUnderTotalBalance()
+        //{
+        //    string number = Program.WithdrawAmt(2368, 3500);
+        //}
+        //[Fact]
+        //public void TestForDepositAmtOverZero()
+        //{
+        //    string number = Program.DepositAmt(25, 3500);
 
-        }
-        [Fact]
-        public void TestForDepositLessThanZero()
-        {
-            string number = Program.DepositAmt(-1, 3500);
-        }
+        //}
+        //[Fact]
+        //public void TestForDepositLessThanZero()
+        //{
+        //    string number = Program.DepositAmt(-1, 3500);
+        //}
     }
 }
