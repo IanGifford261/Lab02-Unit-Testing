@@ -76,7 +76,7 @@ namespace UnitTesting
         /// </summary>
         /// <param name="withdrawnAmt">This is the users input to withdraw from the total</param>
         /// <param name="totalBalance">This is just the global variable declared outside the Main Method</param>
-        /// <returns>The total balance if the withdrawn amount is less than the current total balance, otherwise it stops the method and returns to main menu</returns>
+        /// <returns>Error for over draw or a new balance</returns>
         public static string WithdrawAmt(decimal withdrawnAmt)
         {
             if (withdrawnAmt > totalBalance)
